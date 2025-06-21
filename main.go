@@ -40,7 +40,7 @@ func main() {
 	//     DB: config.Get().Redis.Default.DB,
 	// }))
 
-	// access token generate method: jwt
+	// access token generate method生成方法: jwt
 	mgr.MapAccessGenerate(generates.NewJWTAccessGenerate("", []byte(config.Get().OAuth2.JWTSignedKey), jwt.SigningMethodHS512))
 	clientStore := store.NewClientStore()
 	for _, v := range config.Get().OAuth2.Client {
