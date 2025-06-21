@@ -19,7 +19,6 @@ func (u *User) TableName() string {
 }
 
 func (u *User) Authentication(ctx context.Context, username, password string) (userID string, err error) {
-
 	if config.Get().AuthMode == "ldap" {
 		userID, err = ldap.UserAuthentication(username, password)
 		return
@@ -35,7 +34,6 @@ func (u *User) Authentication(ctx context.Context, username, password string) (u
 			err = errors.New("用户名密码错误")
 			return
 		}
-
 		userID = username
 		return
 	}

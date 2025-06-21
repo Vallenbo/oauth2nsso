@@ -1,28 +1,26 @@
 package config
 
 import (
-    // "fmt"
-    // "strings"
-    "flag"
-    "io/ioutil"
-    "log"
+	"flag"
+	"log"
 
-    "gopkg.in/yaml.v2"
+	"gopkg.in/yaml.v2"
+	"os"
 )
 
 var cfg App
 
 func Setup() {
-    path := flag.String("config", "/etc/oauth2nsso/config.yaml", "the absolute path of config.yaml")
-    flag.Parse()
+	path := flag.String("config", "./config/config.yaml", "the absolute path of config.yaml")
+	flag.Parse()
 
-    content, err := ioutil.ReadFile(*path)
-    if err != nil {
-        log.Fatalf("error: %v", err)
-    }
+	content, err := os.ReadFile(*path)
+	if err != nil {
+		log.Fatalf("cfg ReadFile error: %v", err)
+	}
 
-    err = yaml.Unmarshal(content, &cfg)
-    if err != nil {
-        log.Fatalf("error: %v", err)
-    }
+	err = yaml.Unmarshal(content, &cfg)
+	if err != nil {
+		log.Fatalf("cfg Unmarshal error: %v", err)
+	}
 }
