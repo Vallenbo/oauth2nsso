@@ -37,7 +37,6 @@ func userAuthorizeHandler(w http.ResponseWriter, r *http.Request) (userID string
 	// 不记住用户
 	// store.Delete("LoggedInUserID")
 	// store.Save()
-
 	return
 }
 
