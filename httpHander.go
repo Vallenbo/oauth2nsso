@@ -35,9 +35,8 @@ func authorizeHandler(w http.ResponseWriter, r *http.Request) {
 
 type TplData struct {
 	Client config.OAuth2Client
-	// 用户申请的合规scope
-	Scope []config.Scope
-	Error string
+	Scope  []config.Scope // 用户申请的合规scope
+	Error  string
 }
 
 func loginHandler(w http.ResponseWriter, r *http.Request) {

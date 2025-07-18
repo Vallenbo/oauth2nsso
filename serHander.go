@@ -17,10 +17,16 @@ func passwordAuthorizationHandler(ctx context.Context, clientID, username, passw
 }
 
 func userAuthorizeHandler(w http.ResponseWriter, r *http.Request) (userID string, err error) {
-	v, _ := session.Get(r, "LoggedInUserID")
+	v, err := session.Get(r, "LoggedInUserID")
+	if err != nil {
+		return
+	}
 	if v == nil {
 		if r.Form == nil {
-			r.ParseForm()
+			err = r.ParseForm()
+			if err != nil {
+				return "", err
+			}
 		}
 		session.Set(w, r, "RequestForm", r.Form)
 
@@ -46,7 +52,10 @@ func userAuthorizeHandler(w http.ResponseWriter, r *http.Request) (userID string
 // set scope for the access token
 func authorizeScopeHandler(w http.ResponseWriter, r *http.Request) (scope string, err error) {
 	if r.Form == nil {
-		r.ParseForm()
+		err = r.ParseForm()
+		if err != nil {
+			return "", err
+		}
 	}
 	s := config.ScopeFilter(r.Form.Get("client_id"), r.Form.Get("scope"))
 	if s == nil {

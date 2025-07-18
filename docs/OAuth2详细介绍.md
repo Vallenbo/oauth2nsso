@@ -11,7 +11,7 @@
 
 # 流程图
 
-![img.png](./docs/img.png)
+![img.png](./png/img.png)
 
 # OAuth2的四种授权流程(grant_type)
 

@@ -1,11 +1,9 @@
 # OAuth2&SSO
 
-## 项目介绍
-
 基于 go-oauth2 开发的开源项目，主要用于提供 OAuth2.0 认证服务和单点登录（SSO）功能。
 开源一年多，获得了社区很多用户的关注，该项目多公司线上在用，其中包含上市公司。轻又好用，稳的一P。
 
-### **一、项目核心功能**
+## **一、项目核心功能**
 
 1. **OAuth2.0 认证服务**
    实现了 OAuth2.0 协议的四种标准授权模式：
@@ -29,19 +27,16 @@
     - 提供 Docker 容器化部署方案，方便集成到 DevOps 流程。
 - **社区与生产验证**：开源一年多，被多家公司（包括上市公司）用于线上项目，稳定性得到验证。
 
-## B站视频讲解
-
- [教你构建OAuth2.0和SSO单点登录服务(基于go-oauth2)](https://www.bilibili.com/video/BV1UA411v73P)
 
 ## 单点登录(SSO)示例
 
-[单点登录(SSO)示例](docs/demo.md)
+[单点登录(SSO)示例](docs/单点登录(SSO).md)
 
 ## 动图演示
 
 授权码(authorization_code)流程 & 单点登录(SSO)
 
-![authorization_code_n_sso](https://raw.githubusercontent.com/llaoj/oauth2nsso/master/docs/demo-pic/authorization_code_n_sso.gif)
+![authorization_code_n_sso](docs/png/authorization_code_n_sso.gif)
 
 
 
@@ -211,7 +206,7 @@ go build -mod=vendor
 
 下面是用户第一次登录客户端(待接入应用)过程的时序图, 图中标明了 API 调用时机, 可以参考该流程接入SSO
 
-![uml1](docs/uml1.png)
+![uml1](docs/png/uml1.png)
 
 ## 版本说明
 
